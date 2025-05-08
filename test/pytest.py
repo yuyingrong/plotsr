@@ -16,8 +16,8 @@ class TestHometools(unittest.TestCase):
         from glob import glob
 
         # get the directory where pytest.py lives
-        pytest_dir = os.path.abspath(os.path.dirname(__file__))
-        os.chdir(os.path.join(pytest_dir, 'test_data'))  ###
+        ##pytest_dir = os.path.abspath(os.path.dirname(__file__))
+        ##os.chdir(os.path.join(pytest_dir, 'test_data'))  ###
         #syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
         #genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
 
@@ -47,8 +47,8 @@ class TestHometools(unittest.TestCase):
         from glob import glob
 
         # get the directory where pytest.py lives
-        pytest_dir = os.path.abspath(os.path.dirname(__file__))
-        os.chdir(os.path.join(pytest_dir, 'test_data'))  ###
+        ##pytest_dir = os.path.abspath(os.path.dirname(__file__))
+        ##os.chdir(os.path.join(pytest_dir, 'test_data'))  ###
         #syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
         #genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
 
@@ -76,5 +76,6 @@ class TestHometools(unittest.TestCase):
 
 if __name__ == '__main__':
     #os.chdir('test/test_data/')
-
+    pytest_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'test_data'))###
+    os.chdir(pytest_dir)###
     unittest.main(verbosity=3)
