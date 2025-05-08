@@ -17,8 +17,9 @@ class TestHometools(unittest.TestCase):
 
         # get the directory where pytest.py lives
         pytest_dir = os.path.dirname(__file__)
-        syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
-        genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
+        os.chdir(os.path.join(pytest_dir, 'test_data'))  ###
+        #syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
+        #genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
 
         output = 'plotsr.pdf'
 
@@ -27,7 +28,8 @@ class TestHometools(unittest.TestCase):
         except OSError as e:
             pass
 
-        command = f'plotsr --sr {syri} --genomes {genomes} -o {output}'.split()
+        #command = f'plotsr --sr {syri} --genomes {genomes} -o {output}'.split()
+        command = f'plotsr --sr syri.out --genomes genomes.txt -o {output}'.split()
         p = Popen(command, stdout=PIPE, stderr=PIPE)
         out = p.communicate()
         assert os.path.isfile(output)
@@ -46,8 +48,9 @@ class TestHometools(unittest.TestCase):
 
         # get the directory where pytest.py lives
         pytest_dir = os.path.dirname(__file__)
-        syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
-        genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
+        os.chdir(os.path.join(pytest_dir, 'test_data'))  ###
+        #syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
+        #genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
 
         output = 'plotsr.png'
 
@@ -56,7 +59,8 @@ class TestHometools(unittest.TestCase):
         except OSError as e:
             pass
 
-        command = f'plotsr --sr {syri} --genomes {genomes} -o {output}'.split()
+        #command = f'plotsr --sr {syri} --genomes {genomes} -o {output}'.split()
+        command = f'plotsr --sr syri.out --genomes genomes.txt -o {output}'.split()
         p = Popen(command, stdout=PIPE, stderr=PIPE)
         out = p.communicate()
 
