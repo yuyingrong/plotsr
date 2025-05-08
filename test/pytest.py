@@ -14,6 +14,12 @@ class TestHometools(unittest.TestCase):
         from subprocess import Popen, PIPE
         import os
         from glob import glob
+
+        # get the directory where pytest.py lives
+        pytest_dir = os.path.dirname(__file__)
+        syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
+        genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
+
         output = 'plotsr.pdf'
 
         try:
@@ -21,7 +27,7 @@ class TestHometools(unittest.TestCase):
         except OSError as e:
             pass
 
-        command = f'plotsr --sr syri.out --genomes genomes.txt -o {output}'.split()
+        command = f'plotsr --sr {syri} --genomes {genomes} -o {output}'.split()
         p = Popen(command, stdout=PIPE, stderr=PIPE)
         out = p.communicate()
         assert os.path.isfile(output)
@@ -37,6 +43,12 @@ class TestHometools(unittest.TestCase):
         from subprocess import Popen, PIPE
         import os
         from glob import glob
+
+        # get the directory where pytest.py lives
+        pytest_dir = os.path.dirname(__file__)
+        syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
+        genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
+
         output = 'plotsr.png'
 
         try:
@@ -44,7 +56,7 @@ class TestHometools(unittest.TestCase):
         except OSError as e:
             pass
 
-        command = f'plotsr --sr syri.out --genomes genomes.txt -o {output}'.split()
+        command = f'plotsr --sr {syri} --genomes {genomes} -o {output}'.split()
         p = Popen(command, stdout=PIPE, stderr=PIPE)
         out = p.communicate()
 
@@ -61,5 +73,3 @@ class TestHometools(unittest.TestCase):
 if __name__ == '__main__':
     os.chdir('test/test_data/')
     unittest.main(verbosity=3)
-
-
