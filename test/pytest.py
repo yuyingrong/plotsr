@@ -75,5 +75,6 @@ class TestHometools(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    os.chdir('test/test_data/')
+    #os.chdir('test/test_data/')
+
     unittest.main(verbosity=3)
