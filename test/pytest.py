@@ -15,12 +15,6 @@ class TestHometools(unittest.TestCase):
         import os
         from glob import glob
 
-        # get the directory where pytest.py lives
-        ##pytest_dir = os.path.abspath(os.path.dirname(__file__))
-        ##os.chdir(os.path.join(pytest_dir, 'test_data'))  ###
-        #syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
-        #genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
-
         output = 'plotsr.pdf'
 
         try:
@@ -28,7 +22,6 @@ class TestHometools(unittest.TestCase):
         except OSError as e:
             pass
 
-        #command = f'plotsr --sr {syri} --genomes {genomes} -o {output}'.split()
         command = f'plotsr --sr syri.out --genomes genomes.txt -o {output}'.split()
         p = Popen(command, stdout=PIPE, stderr=PIPE)
         out = p.communicate()
@@ -46,12 +39,6 @@ class TestHometools(unittest.TestCase):
         import os
         from glob import glob
 
-        # get the directory where pytest.py lives
-        ##pytest_dir = os.path.abspath(os.path.dirname(__file__))
-        ##os.chdir(os.path.join(pytest_dir, 'test_data'))  ###
-        #syri = os.path.join(pytest_dir, 'test_data', 'syri.out')
-        #genomes = os.path.join(pytest_dir, 'test_data', 'genomes.txt')
-
         output = 'plotsr.png'
 
         try:
@@ -59,7 +46,6 @@ class TestHometools(unittest.TestCase):
         except OSError as e:
             pass
 
-        #command = f'plotsr --sr {syri} --genomes {genomes} -o {output}'.split()
         command = f'plotsr --sr syri.out --genomes genomes.txt -o {output}'.split()
         p = Popen(command, stdout=PIPE, stderr=PIPE)
         out = p.communicate()
@@ -75,7 +61,6 @@ class TestHometools(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    #os.chdir('test/test_data/')
-    pytest_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'test_data'))###
-    os.chdir(pytest_dir)###
+    pytest_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'test_data'))
+    os.chdir(pytest_dir)
     unittest.main(verbosity=3)
