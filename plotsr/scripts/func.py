@@ -1622,7 +1622,7 @@ def pltchrom(ax, chrs, chrgrps, chrlengths, v, S, genomes, cfg, itx, chr_start_c
             for i in range(len(chrs)):
                 offset = i if not v else -i
                 genome = [gen for gen in genomes if gen.n == chrlengths[s][0]][0]
-                chrlength = chrlengths[s][1][chrs[i]]
+                chrlength = chrlengths[s][1][chrgrps[chrs[i]][s]]
                 if not chrlabs[s]:
                     #ax, c = pltchrbox(ax, agpdata[genome.n][chrgrps[chrs[i]][s]], centrodata[genome.n][chrgrps[chrs[i]][s]], indents[s]-offset, genome.lc, chrwidth, minl=minl, lab=chrlengths[s][0])
                     ax, c = pltchrbox(ax, v, indents[s] - offset, genome.lc, chrwidth, maxl=chrlength, minl=minl, lab=chrlengths[s][0])
